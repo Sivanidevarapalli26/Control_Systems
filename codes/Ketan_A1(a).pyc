@@ -1,1 +1,12 @@
-
+import numpy as np
+import matplotlib.pyplot as plt
+plt.xlim([-2,2])
+plt.ylim([0,-1])
+w = np.append(np.linspace(0,1000,100),np.linspace(0,1,10000)) 
+Gm = 1/((np.sqrt(1+(w*w)))*(np.sqrt(1+4*w*w)))                                  
+Gp= -np.arctan(w)-np.arctan(2*w)                         
+x = Gm*np.cos(Gp) #This is x-coordinate in polar                                      
+y = Gm*np.sin(Gp)  
+plt.grid()
+plt.plot(x,y)
+plt.show()
