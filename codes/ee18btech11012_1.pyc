@@ -9,4 +9,6 @@ x = Gm*np.cos(Gp) #This is x-coordinate in polar
 y = Gm*np.sin(Gp)  
 plt.grid()
 plt.plot(x,y)
+plt.xlabel("x-axis(mag,phase)")
+plt.ylabel("y-axis(mag,plase)")
 plt.show()
