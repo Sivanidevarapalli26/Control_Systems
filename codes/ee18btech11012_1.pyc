@@ -1,14 +1,35 @@
 import numpy as np
 import matplotlib.pyplot as plt
-plt.xlim([-2,2])
-plt.ylim([0,-1])
-w = np.append(np.linspace(0,1000,100),np.linspace(0,1,10000)) 
-Gm = 1/((np.sqrt(1+(w*w)))*(np.sqrt(1+4*w*w)))                                  
-Gp= -np.arctan(w)-np.arctan(2*w)                         
-x = Gm*np.cos(Gp) #This is x-coordinate in polar                                      
-y = Gm*np.sin(Gp)  
-plt.grid()
-plt.plot(x,y)
-plt.xlabel("x-axis(mag,phase)")
-plt.ylabel("y-axis(mag,plase)")
+import control
+
+#values of omega (w)
+OMEGA = np.linspace(-20, 20, 2001)
+
+#defining transfer function
+s = control.TransferFunction.s
+G = 1/((s+1)*(2*s+1))
+#Using library getting mag and phase of the transfer function for resp. omegas
+MAG, PHASE, W = G.freqresp(OMEGA)
+#plotting the polar plot
+ax1 = plt.subplot(111, projection='polar')
+
+ax1.plot(PHASE.reshape((2001,))[-1000:],MAG.reshape((2001,))[-1000:])
+
+plt.title("polar plot")
+plt.show()
+
+#plotting magintude versus omega
+plt.plot(W, MAG.reshape((2001,)))
+plt.title("Magnitude plot")
+plt.xlabel("$\omega$")
+plt.ylabel("|G(j$\omega$)|")
+plt.xlim(-25, 25)
+plt.show()
+
+#plotting Phase versus omega
+plt.plot(W, PHASE.reshape((2001,)))
+plt.title("Phase plot")
+plt.xlabel("w")
+plt.ylabel("$Phase$")
+plt.xlim(-10, 10)
 plt.show()
