@@ -68,10 +68,29 @@ Uses of Polar plots in control systems:\\
 
 
 4.Here we will have to work with open loop transfer function G(s)H(s) (and not with closed loop transfer function and unlike Bode plot we need not required to convert G(s)H(s) to the time constant form).\\
-5.polar plot tells about the magnitude and phase contribution of system at various frequency of a transfer function which is important in control systems.\\
-6.Polar plot consists of concentric circles and radial lines showing the magnitude and phase of transfer function respectively.\\
+
+5.Polar plot consists of concentric circles and radial lines showing the magnitude and phase of transfer function respectively.\\
+
+6.This is half of Nyquist plot running over positive frequencies.\\
+
 7.If we know type and order of a transfer function,we can easily draw its magnitude versus phase plot using polar plot.\\
-8.This is half of Nyquist plot running over positive frequencies.
+For example,
+In the given transfer function\\
+\begin{align}
+G(s) = \frac{1}{(1+s)(1+2s)}
+\end{align}
+Order is highest power of the polynomial in denominator of G(s),Type of system is number of poles at origin.\\
+Here order=2,type=0\\
+So this polar plot lies in third and fourth quardrant.
+These order and type of a system determines shape of polar plot as shown in fig.4.7
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{ee18btech11012_4.png}
+    \caption{Polar plot shape based on order and type}
+    \label{fig:Graph}
+\end{figure}
+
+
 
 
 \end{enumerate}
